@@ -1,8 +1,6 @@
 /**
  * author:fmz200
- * date:2023-09-27 09:13:13
- * 配置QX重写：在[rewrite_remote]下填写👇🏻配置
- * https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/weibo.snippet, tag=微博移除发现页广告@fmz200, update-interval=172800, opt-parser=false, enabled=true
+ * date:2023-11-19 10:13:00
  */
 
 const url1 = '/search/finder';
@@ -78,7 +76,6 @@ function modifyMain(url, data) {
     console.log('移除finder_channel模块💕💕');
     if (payload.items[index + 2].data?.more_pic?.includes('ads')) {
       delete payload.items[index + 2].data.more_pic;
-      // payload.items[index + 2].data.more_pic = getRandomWeiboPic();
     }
     payload.items[index + 2].data.group = removeFinderChannelAds(payload.items[index + 2].data.group);
 
@@ -88,7 +85,6 @@ function modifyMain(url, data) {
     // 1.5、背景图广告
     if (payload.loadedInfo?.headerBack) {
       delete payload.loadedInfo.headerBack;
-      // processChannelStyleMap(payload.loadedInfo.headerBack.channelStyleMap);
     }
 
     return JSON.stringify(resp_data);
@@ -112,7 +108,6 @@ function modifyMain(url, data) {
     console.log('移除finder_channel模块💕💕');
     if (resp_data.items[index + 2].data?.more_pic?.includes('ads')) {
       delete resp_data.items[index + 2].data.more_pic;
-      // resp_data.items[index + 2].data.more_pic = getRandomWeiboPic();
     }
     resp_data.items[index + 2].data.group = removeFinderChannelAds(resp_data.items[index + 2].data.group);
 
@@ -122,7 +117,6 @@ function modifyMain(url, data) {
     // 2.5、背景图广告
     if (resp_data.loadedInfo?.headerBack) {
       delete resp_data.loadedInfo.headerBack;
-      // processChannelStyleMap(resp_data.loadedInfo.headerBack.channelStyleMap);
     }
     return JSON.stringify(resp_data);
   }
@@ -166,7 +160,7 @@ function modifyMain(url, data) {
 function removeHotSearchAds(groups) {
   if (!groups) return;
   console.log('移除发现页热搜广告开始💕');
-  const newGroups = groups.filter(group => !(group.item_log?.adid));
+  const newGroups = groups.filter(group => !(group.itemid?.includes("is_ad_pos") || group.promotion));
   console.log('移除发现页热搜广告结束💕💕');
   return newGroups;
 }
@@ -177,8 +171,7 @@ function removeFinderChannelAds(groups) {
   console.log('移除发现页finder_channel广告开始💕');
   const newGroups = [];
   for (const group of groups) {
-    if (group.hasOwnProperty('pic') && group.pic.includes('ads')) {
-      // https://h5.sinaimg.cn/upload/100/972/2022/06/13/timeline_location_default.png
+    if (group.pic?.includes('ads')) {
       group.pic = titleSubPicMap[group.title_sub] || "https://simg.s.weibo.com/20200915_huodong.png";
     }
     newGroups.push(group);
@@ -195,21 +188,6 @@ function removeCategoryFeedAds(items) {
   return newItems;
 }
 
-function processChannelStyleMap(channelStyleMap) {
-  if (!channelStyleMap) return;
-  console.log('移除发现页背景图广告开始💕');
-  for (const propertyName in channelStyleMap) {
-    if (channelStyleMap.hasOwnProperty(propertyName) && propertyName.includes('102803')) {
-      const property = channelStyleMap[propertyName];
-      if (property.hasOwnProperty('data')) {
-        property.data.backgroundImage = '';
-        property.data.backgroundDarkImage = '';
-      }
-    }
-  }
-  console.log('移除发现页背景图广告结束💕💕');
-}
-
 // 移除微博首页的多余tab页
 function removePageDataAds(items) {
   console.log('移除微博首页的多余tab页开始💕');
@@ -224,6 +202,10 @@ function swapObjectsInArray(array, index1, index2) {
   const temp = array[index1];
   array[index1] = array[index2];
   array[index2] = temp;
+
+  array[index2].type = array[index1].type;
+  array[index2].apipath = "statuses/container_timeline_unread";
+  delete array[index2].navigation_title;
   console.log('交换tab页顺序结束💕💕');
 }
 
