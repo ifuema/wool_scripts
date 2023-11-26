@@ -1,6 +1,7 @@
 /**
  * author:fmz200
- * date:2023-11-19 10:13:00
+ * @function 微博去广告
+ * date:2023-11-23 22:23:00
  */
 
 const url1 = '/search/finder';
@@ -11,12 +12,6 @@ const url5 = '/statuses/container_timeline_topicpage'; // 微博超话页面
 const url6 = '/statuses/extend'; // 微博详情页面广告
 const url7 = '/groups/allgroups/v2' // 微博首页Tab标签页
 
-const weiboPic = [
-  "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Weibo-01.png",
-  "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Weibo-27.png",
-  "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Weibo-30.png",
-  "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Weibo-32.png"
-];
 const titleSubPicMap = {
   '电影': 'https://simg.s.weibo.com/imgtool/20221207_dianying.png',
   '热议': 'https://simg.s.weibo.com/20220402_hottopic-icon.png',
@@ -73,11 +68,13 @@ function modifyMain(url, data) {
     payload.items[index + 1] = {};
 
     // 1.3、下标为3的是热议模块
-    console.log('移除finder_channel模块💕💕');
+    console.log('移除热议热聊模块💕💕');
     if (payload.items[index + 2].data?.more_pic?.includes('ads')) {
       delete payload.items[index + 2].data.more_pic;
     }
-    payload.items[index + 2].data.group = removeFinderChannelAds(payload.items[index + 2].data.group);
+    if (payload.items[index + 2]?.data?.group) {
+      payload.items[index + 2].data.group = removeFinderChannelAds(payload.items[index + 2]?.data?.group);
+    }
 
     // 1.4、items[i].category = "feed" 是热门微博的部分
     payload.items = removeCategoryFeedAds(payload.items);
@@ -109,7 +106,9 @@ function modifyMain(url, data) {
     if (resp_data.items[index + 2].data?.more_pic?.includes('ads')) {
       delete resp_data.items[index + 2].data.more_pic;
     }
-    resp_data.items[index + 2].data.group = removeFinderChannelAds(resp_data.items[index + 2].data.group);
+    if (resp_data.items[index + 2]?.data?.group) {
+      resp_data.items[index + 2].data.group = removeFinderChannelAds(resp_data.items[index + 2].data.group);
+    }
 
     // 2.4、items[i].category = "feed" 是热门微博的部分
     resp_data.items = removeCategoryFeedAds(resp_data.items);
@@ -168,7 +167,7 @@ function removeHotSearchAds(groups) {
 // 移除“微博热搜”下面的“热聊，本地等”的广告
 function removeFinderChannelAds(groups) {
   if (!groups) return;
-  console.log('移除发现页finder_channel广告开始💕');
+  console.log('移除发现页热聊，本地广告开始💕');
   const newGroups = [];
   for (const group of groups) {
     if (group.pic?.includes('ads')) {
@@ -176,7 +175,7 @@ function removeFinderChannelAds(groups) {
     }
     newGroups.push(group);
   }
-  console.log('移除发现页finder_channel广告结束💕💕');
+  console.log('移除发现页热聊，本地广告结束💕💕');
   return newGroups;
 }
 
@@ -209,7 +208,3 @@ function swapObjectsInArray(array, index1, index2) {
   console.log('交换tab页顺序结束💕💕');
 }
 
-function getRandomWeiboPic() {
-  const randomIndex = Math.floor(Math.random() * weiboPic.length);
-  return weiboPic[randomIndex];
-}
