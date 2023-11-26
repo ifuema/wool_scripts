@@ -1,0 +1,5 @@
+# > 小程序
+# > 瑞幸咖啡
+^https:\/\/(ec|c)api\.lkcoffee\.com\/resource\/m\/eorder\/product\/popAppTagProductList url reject
+# > hostname
+
