@@ -2,5 +2,4 @@
 # > 瑞幸咖啡
 ^https:\/\/(ec|c)api\.lkcoffee\.com\/resource\/m\/eorder\/product\/popAppTagProductList url reject
 # > hostname
-m.baidu.com
 interface*.music.163.com
