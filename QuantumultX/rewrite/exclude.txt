@@ -3,3 +3,4 @@
 ^https:\/\/(ec|c)api\.lkcoffee\.com\/resource\/m\/eorder\/product\/popAppTagProductList url reject
 # > hostname
 interface*.music.163.com
+m.baidu.com
