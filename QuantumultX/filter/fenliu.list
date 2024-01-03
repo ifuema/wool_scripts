@@ -1,11 +1,11 @@
 #!name=广告拦截合集-分流
-#!desc=(F)针对部分APP开屏广告，应用内广告进行拦截，某些APP要清除缓存或者重新安装APP，拦截广告才会生效！
+#!desc=(F)针对部分APP和小程序广告进行拦截，某些APP要清除缓存或者重新安装APP，拦截广告才会生效！
 #!author=fmz200
 #!homepage=https://github.com/fmz200/wool_scripts
 #!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/author/NaiSi_01.png
 #!raw-url=https://github.com/fmz200/wool_scripts/raw/main/QuantumultX/filter/fenliu.list
 #!tg-group：https://t.me/lanjieguanggao
-#!date：2023-12-06 23:56:00
+#!date：2024-01-01 09:23:00
 #!support：约9392行
 #!proxy-select：reject
 #############################################
@@ -1684,7 +1684,6 @@ host-keyword, ad-sign.byteimg.com, reject
 # >>>>>>>>>>>>>>> ✅ 其他广告 ✅ <<<<<<<<<<<<<<
 host-keyword, huichuan-mc.sm.cn, reject
 host-keyword, extlog.snssdk.com, reject
-;host-keyword, is.snssdk.com, reject
 host-keyword, mobads.baidu.com, reject
 host-keyword, s3a.pstatp.com, reject
 host-keyword, sdfp.snssdk.com, reject
@@ -1800,7 +1799,7 @@ host-suffix, etahub.com, reject
 host-suffix, 22c.in, reject
 host-suffix, imgxxx.shunxincar.cn, reject
 host-suffix, cc58.oss-cn-beijing.aliyuncs.com, reject
-host-suffix, oss-accelerate.aliyuncs.com, reject
+;host-suffix, oss-accelerate.aliyuncs.com, reject
 host-suffix, kk.braincf.com, reject
 host-suffix, run.haireig.com, reject
 host-suffix, d.zxptw.cn, reject

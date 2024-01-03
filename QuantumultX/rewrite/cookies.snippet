@@ -5,7 +5,7 @@
 #!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/gif/naisi-01.gif
 #!raw-url=https://github.com/fmz200/wool_scripts/raw/main/QuantumultX/rewrite/cookies.snippet
 #!tg-group=https://t.me/lanjieguanggao
-#!date=2023-11-12 22:03:00
+#!date=2023-12-29 06:03:00
 #############################################
 # 包含内容：
 # chavyleung    https://github.com/chavyleung/scripts/blob/master/QuantumultX_Local_Cookie.conf
@@ -33,18 +33,17 @@ hostname = yunbusiness.ccb.com, home.m.jd.com, api.m.jd.com, ms.jr.jd.com, jdrea
 https?:\/\/game\.xiaojukeji\.com\/api\/game\/plant\/enter url script-request-body https://raw.githubusercontent.com/passerby-b/didi_fruit/main/dd_getToken.js
 https?:\/\/game\.xiaojukeji\.com\/api\/game\/plant\/enter url script-request-header https://raw.githubusercontent.com/leafTheFish/DeathNote/main/ddgy.js
 
-# 美团买菜天天果园获取token
-^https:\/\/mall\.meituan\.com\/api\/\c\/mallcoin\/game\/fruit\/waterTreeV2 url script-request-header https://raw.githubusercontent.com/passerby-b/mt_fruit/main/mtmc_getToken.js
-
-# 美团
-https://open.meituan.com/user/v1/info/audit url script-request-header https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/scripts/get_cookie.js
+# 美团获取token
+https://open.meituan.com/user/v1/info/audit url script-request-header https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cookie/get_cookie.js
+https://gaea.meituan.com/mapi/usercenter url script-request-header https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cookie/get_cookie.js
 
 # 京东ck，浏览器登录京东，点击右下角我的页面获取
 ^https:\/\/home\.m\.jd\.com\/myJd\/(newhome|home)\.action url script-request-header https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/jingdong/jd_cookie.js
 ;^https:\/\/api\.m\.jd\.com\/client\.action url script-request-header https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/jingdong/jd_cookie.js
 
 # 微博ck
-^https:\/\/m?api\.weibo\.c(n|om)\/\d\/users\/show url script-request-header https://raw.githubusercontent.com/Sunert/Script/master/Task/weibo.js
+^https:\/\/m?api\.weibo\.c(n|om)\/\d\/users\/show url script-request-header https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cookie/get_cookie.js
+;^https:\/\/m?api\.weibo\.c(n|om)\/\d\/users\/show url script-request-header https://raw.githubusercontent.com/Sunert/Script/master/Task/weibo.js
 
 # 抖音 抖抖果园
 ^https://minigame.zijieapi.com/ttgame/game_orchard_ecom/polling_info url script-request-header https://raw.githubusercontent.com/LinYuanovo/scripts/main/dygy.js
@@ -56,10 +55,10 @@ https://open.meituan.com/user/v1/info/audit url script-request-header https://ra
 https://m.pinduoduo.net/proxy/api/api/server/_stm url script-request-header https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/pinduoduo/pdd_getToken.js
 
 # 小米运动
-# ^https:\/\/account\.huami\.com\/v2\/client\/login url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/xiaomiSports/xmSports.js
+;^https:\/\/account\.huami\.com\/v2\/client\/login url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/xiaomiSports/xmSports.js
 
 # 什么值得买 (APP点击个人头像/个人资料获取)
-^https:\/\/user-api\.smzdm\.com\/users\/info url script-request-header https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/scripts/get_cookie.js
+^https:\/\/user-api\.smzdm\.com\/users\/info url script-request-header https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cookie/get_cookie.js
 
 # TestFlight账号cookie
 ^https:\/\/testflight\.apple\.com\/v3\/accounts/.*\/apps$ url script-request-header https://raw.githubusercontent.com/chouchoui/QuanX/master/Scripts/testflight/TF_keys.js
@@ -81,12 +80,12 @@ https://m.pinduoduo.net/proxy/api/api/server/_stm url script-request-header http
 
 # >>>>>>>>>>>>>>> ✅ blackmatrix7 ✅ <<<<<<<<<<<<<<
 # 美团买菜每日自动签到cookie, 打开美团App，选择“美团买菜” - “我的” - “天天领钱”
-# ^https?:\/\/mall\.meituan\.com\/api\/c\/mallcoin\/checkIn\/getWeekCheckInProgressBar\? url script-request-header https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/meituan/maicai_checkin.js
+;^https?:\/\/mall\.meituan\.com\/api\/c\/mallcoin\/checkIn\/getWeekCheckInProgressBar\? url script-request-header https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/meituan/maicai_checkin.js
 # 饿了么每日自动领取任务及吃货豆cookie
-# ^https?:\/\/air\.tb\.ele\.me\/app\/conch-page\/svip-foodie-card\/home url script-request-header https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/eleme/eleme_daily.js
-# ^https?:\/\/air\.tb\.ele\.me\/app\/conch-page\/svip-home-tasklist-new\/home url script-request-header https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/eleme/eleme_daily.js
-# ^https?:\/\/tb\.ele\.me\/wow\/alsc\/mod url script-request-header https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/eleme/eleme_daily.js
-# ^https?:\/\/h5\.ele\.me\/restapi\/biz\.svip_scene\/svip\/engine\/queryTrafficSupply url script-request-header https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/eleme/eleme_daily.js
+;^https?:\/\/air\.tb\.ele\.me\/app\/conch-page\/svip-foodie-card\/home url script-request-header https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/eleme/eleme_daily.js
+;^https?:\/\/air\.tb\.ele\.me\/app\/conch-page\/svip-home-tasklist-new\/home url script-request-header https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/eleme/eleme_daily.js
+;^https?:\/\/tb\.ele\.me\/wow\/alsc\/mod url script-request-header https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/eleme/eleme_daily.js
+;^https?:\/\/h5\.ele\.me\/restapi\/biz\.svip_scene\/svip\/engine\/queryTrafficSupply url script-request-header https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/eleme/eleme_daily.js
 # Fa米家_获取cookie
 ^https?:\/\/fmapp\.chinafamilymart\.com\.cn\/api\/app\/market\/member\/(signin\/usersign|sign\/current) url script-request-header https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/famijia/famijia_checkin.js
 # Luka_获取cookie
