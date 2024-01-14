@@ -1,6 +1,7 @@
-# > 小程序
+# > %小程序%
 # > 瑞幸咖啡
-^https:\/\/(ec|c)api\.lkcoffee\.com\/resource\/m\/eorder\/product\/popAppTagProductList url reject
+# > Flightradar24
 # > hostname
 interface*.music.163.com
 m.baidu.com
+mobile.flightradar24.com
