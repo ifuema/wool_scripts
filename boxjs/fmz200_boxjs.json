@@ -1,18 +1,47 @@
 {
   "id": "fmz200.sub",
-  "name": "fmz200的BoxJS订阅",
+  "name": "fmz200のBoxJS订阅",
   "author": "@fmz200",
   "icon": "https://avatars.githubusercontent.com/u/57740735?s=60&v=4",
   "repo": "https://github.com/fmz200/wool_scripts",
+  "desc": "订阅大多都支持多账号，协定数据格式如下：有主键的用JSON，没有主键的拼接用#分割用@。\n例如{\"uid1\": \"token1\", \"uid2\": \"token2\",\"uid3\": \"token3\"}和uid1#token1@uid2#token2@uid3#token3",
   "apps": [
     {
-      "id": "smzdm_fmz200",
-      "name": "什么值得买cookie",
+      "id": "fmz200_aliyun",
+      "name": "阿里云盘cookie",
       "keys": [
-        "SMZDM_COOKIE"
+        "aliyun_data"
       ],
       "descs_html": [
-        "填写token,多账号用英文逗号(&)分开"
+        "填写cookie,多账号用英文逗号(@)分开"
+      ],
+      "settings": [
+        {
+          "id": "aliyun_data",
+          "name": "阿里云盘cookie",
+          "val": "",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 32,
+          "desc": "阿里云盘cookie"
+        }
+      ],
+      "icons": [
+        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/AliYunDrive.png",
+        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/AliYunDrive.png"
+      ],
+      "author": "@fmz200",
+      "repo": "https://github.com/fmz200/wool_scripts"
+    },
+    {
+      "id": "fmz200_smzdm",
+      "name": "什么值得买cookie",
+      "keys": [
+        "SMZDM_COOKIE",
+        "fmz200_smzdm_cookie"
+      ],
+      "descs_html": [
+        "填写cookie，有两种不同的存储方式"
       ],
       "settings": [
         {
@@ -22,18 +51,27 @@
           "type": "textarea",
           "autoGrow": true,
           "rows": 16,
-          "desc": "什么值得买cookie"
+          "desc": "多账号用英文逗号(@)分隔"
+        },
+        {
+          "id": "fmz200_smzdm_cookie",
+          "name": "什么值得买cookie",
+          "val": "",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 32,
+          "desc": "多账号使用JSON存储"
         }
       ],
       "icons": [
-        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/smzdm.png",
-        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/smzdm.png"
+        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/smzdm.png",
+        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/smzdm.png"
       ],
       "author": "@fmz200",
       "repo": "https://github.com/fmz200/wool_scripts"
     },
     {
-      "id": "oil_price_region_fmz200",
+      "id": "fmz200_oil_price",
       "name": "今日油价",
       "keys": [
         "oil_price_region"
@@ -60,17 +98,27 @@
       "repo": "https://github.com/fmz200/wool_scripts"
     },
     {
-      "id": "didi_fruit",
+      "id": "fmz200_didi_fruit",
       "name": "滴滴橙心果园",
       "keys": [
-        "ddtoken"
+        "ddgyToken",
+        "fmz200_didi_fruit"
       ],
       "descs_html": [
-        "填写token,多账号用英文逗号(,)分开"
+        "多账号换行或者@隔开，格式uid&token。uid不可随便填，会根据uid更新数据"
       ],
       "settings": [
         {
-          "id": "ddtoken",
+          "id": "ddgyToken",
+          "name": "token",
+          "val": "",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 8,
+          "desc": "token"
+        },
+        {
+          "id": "fmz200_didi_fruit",
           "name": "token",
           "val": "",
           "type": "textarea",
@@ -80,21 +128,21 @@
         }
       ],
       "icons": [
-        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/task/didi.png",
-        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/task/didi.png"
+        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/didi.png",
+        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/didi.png"
       ],
       "author": "@passerby-b",
       "repo": "https://github.com/fmz200/wool_scripts",
       "script": "https://raw.githubusercontent.com/passerby-b/didi_fruit/main/dd_fruit.js"
     },
     {
-      "id": "ks_fruit",
+      "id": "fmz200_ks_fruit",
       "name": "快手果园",
       "keys": [
         "kscookies"
       ],
       "descs_html": [
-        "填写cookie,多账号用英文逗号(,)分开"
+        "(正在计划多账号支持)填写cookie,多账号用英文逗号(@)分开"
       ],
       "settings": [
         {
@@ -108,21 +156,22 @@
         }
       ],
       "icons": [
-        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/task/kuaishou.png",
-        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/task/kuaishou.png"
+        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/kuaishou.png",
+        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/kuaishou.png"
       ],
       "author": "@passerby-b",
       "repo": "https://github.com/fmz200/wool_scripts",
       "script": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/kuaishou/ks_fruit.js"
     },
     {
-      "id": "pddgyck",
+      "id": "fmz200_pdd_fruit",
       "name": "拼多多果园token",
       "keys": [
-        "ddgyck"
+        "ddgyck",
+        "fmz200_pdd_token"
       ],
       "descs_html": [
-        "小程序或APP 进果园一圈（批量浇水），在请求头中搜索AccessToken"
+        "(正在计划多账号支持)小程序或APP 进果园一圈（批量浇水），在请求头中搜索AccessToken"
       ],
       "settings": [
         {
@@ -132,6 +181,15 @@
           "type": "textarea",
           "autoGrow": false,
           "rows": 4,
+          "desc": "多个账号用@分割：tk1@tk2"
+        },
+        {
+          "id": "fmz200_pdd_token",
+          "name": "拼多多果园token",
+          "val": "",
+          "type": "textarea",
+          "autoGrow": false,
+          "rows": 8,
           "desc": "多个账号用@分割：tk1@tk2"
         }
       ],
@@ -144,7 +202,7 @@
       ]
     },
     {
-      "id": "dygy_ck",
+      "id": "fmz200_dygy",
       "name": "抖音果园cookie",
       "keys": [
         "ddgyCk"
@@ -168,73 +226,49 @@
       "repo": "https://github.com/fmz200/wool_scripts",
       "script": "https://raw.githubusercontent.com/LinYuanovo/scripts/main/dygy.js",
       "icons": [
-        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/TikTok.png",
-        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/TikTok.png"
+        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/chxm1023/TikTok.png",
+        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/chxm1023/TikTok.png"
       ]
     },
     {
-      "id": "mt_token",
+      "id": "fmz200_mt_token",
       "name": "美团token",
       "keys": [
-        "meituanCookie"
+        "meituanCookie",
+        "fmz200_meituan_cookie"
       ],
       "descs_html": [
-        "打开美团，在请求头中搜索token，多账号换行或者@隔开"
+        "打开美团查看个人资料，在请求头中搜索token"
       ],
       "settings": [
         {
           "id": "meituanCookie",
           "name": "美团token",
           "val": "",
-          "desc": "举例：userId=12345678&token=tk1@userId=123&token=tk2",
+          "desc": "多账号换行或者@隔开。例如：token1@token2",
           "type": "textarea",
-          "autoGrow": false,
-          "rows": 8
+          "autoGrow": true,
+          "rows": 16
+        },
+        {
+          "id": "fmz200_meituan_cookie",
+          "name": "美团token",
+          "val": "",
+          "desc": "多账号用(@)分隔，账号数据用(#)连接[key#value]格式，例如：123#qazwsx@456#edcrfv",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 16
         }
       ],
       "author": "@fmz200",
       "repo": "https://github.com/fmz200/wool_scripts",
       "icons": [
-        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/meituan.png",
-        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/meituan.png"
+        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/meituan.png",
+        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/meituan.png"
       ]
     },
     {
-      "id": "sheepToken",
-      "name": "养了个羊token",
-      "keys": [
-        "sheepToken_wx",
-        "sheepToken_dy"
-      ],
-      "settings": [
-        {
-          "id": "sheepToken_wx",
-          "name": "(微信)养了个羊token",
-          "val": "",
-          "type": "textarea",
-          "autoGrow": false,
-          "rows": 12,
-          "desc": "进入小程序时获取的token"
-        },
-        {
-          "id": "sheepToken_dy",
-          "name": "(抖音)养了个羊token",
-          "val": "",
-          "type": "textarea",
-          "autoGrow": false,
-          "rows": 12,
-          "desc": "进入小程序时获取的token"
-        }
-      ],
-      "author": "@fmz200",
-      "repo": "https://github.com/fmz200/wool_scripts/tree/master/",
-      "icons": [
-        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/sheep.png",
-        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/sheep.png"
-      ]
-    },
-    {
-      "id": "airport_fetch_notice",
+      "id": "fmz200_airport_notice",
       "name": "获取机场公告",
       "keys": [
         "url_airport",
@@ -282,8 +316,8 @@
       "script": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/scripts/airport_fetch_notice.js"
     },
     {
-      "id": "testflight-",
-      "name": "tf监控",
+      "id": "fmz200_testflight",
+      "name": "TF监控",
       "keys": [
         "appkey",
         "testflight_isnotify"
@@ -313,8 +347,8 @@
       "author": "@syzzzf",
       "repo": "https://github.com/songyangzz/QuantumultX/blob/master/testflight.js",
       "icons": [
-        "https://raw.githubusercontent.com/Orz-3/mini/master/testflight.png",
-        "https://raw.githubusercontent.com/Orz-3/task/master/testflight.png"
+        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/erdongchanyo/TestFlight.png",
+        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/erdongchanyo/TestFlight.png"
       ]
     },
     {
@@ -346,12 +380,12 @@
       "author": "@NobyDa",
       "repo": "https://github.com/NobyDa/Script/blob/master/TestFlight/TestFlightAccount.js",
       "icons": [
-        "https://raw.githubusercontent.com/NobyDa/mini/master/Alpha/testflight.png",
-        "https://raw.githubusercontent.com/NobyDa/mini/master/Color/testflight.png"
+        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/testflight.png",
+        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/testflight.png"
       ]
     },
     {
-      "id": "ql_sync",
+      "id": "fmz200_ql_sync",
       "name": "BoxJS与青龙数据同步",
       "keys": [
         "ql_sync_keys",
@@ -446,7 +480,7 @@
       ]
     },
     {
-      "id": "macat_signin",
+      "id": "fmz200_macat_signin",
       "name": "macat.vip网站签到",
       "keys": [
         "fmz200.macat_loginBody"
@@ -470,7 +504,7 @@
       ]
     },
     {
-      "id": "freeAppsToday",
+      "id": "fmz200_freeAppsToday",
       "name": "今日限免APP",
       "keys": [
         "freeAppsTodayKey"
@@ -503,7 +537,7 @@
       ]
     },
     {
-      "id": "CCB_life_checkin",
+      "id": "fmz200_CCB_life",
       "name": "建行生活签到",
       "keys": [
         "photonmang_signurl_jhsh",
@@ -556,13 +590,9 @@
       ]
     },
     {
-      "id": "douyuYubaSign",
+      "id": "fmz200_douyuYubaSign",
       "name": "斗鱼鱼吧签到",
       "desc_html": "⚠️使用说明</br>详情【<a href='https://github.com/fmz200/wool_scripts/raw/main/Scripts/douyu/yubaSign.js'><font class='red--text'>点我查看</font></a>】",
-      "icons": [
-        "https://raw.githubusercontent.com/Orz-3/mini/master/Alpha/douyu.png",
-        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/douyu.png"
-      ],
       "keys": [
         "CookieDY",
         "GroupDY"
@@ -599,7 +629,11 @@
       ],
       "author": "@demo2099, @lowking, @fmz200",
       "repo": "https://github.com/fmz200/wool_scripts",
-      "script": "https://github.com/fmz200/wool_scripts/raw/main/Scripts/douyu/yubaSign.js"
+      "script": "https://github.com/fmz200/wool_scripts/raw/main/Scripts/douyu/yubaSign.js",
+      "icons": [
+        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/douyu.png",
+        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/douyu.png"
+      ]
     }
   ]
 }
