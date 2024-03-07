@@ -4,7 +4,7 @@
 # > hostname
 interface*.music.163.com
 m.baidu.com
-# mobile.flightradar24.com
+mobile.flightradar24.com
 mrobot.buy.itunes.apple.com
 api.zhihu.com
 www.zhihu.com
