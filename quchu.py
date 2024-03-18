@@ -4,8 +4,8 @@ def remove_excluded_urls(line, exclude_urls):
     return 'hostname = ' + ', '.join(filtered_urls) + '\n'
 
 def main():
-    exclude_file = 'exclude.txt'
-    target_file = 'chongxie.txt'
+    exclude_file = 'QuantumultX/rewrite/exclude.txt'
+    target_file = 'QuantumultX/rewrite/chongxie.txt'
 
     with open(exclude_file, 'r', encoding='utf-8') as f:
         exclude_urls = {line.strip() for line in f}
