@@ -1,13 +1,13 @@
 # > %小程序%
 # > 瑞幸咖啡
 # > Flightradar24
-# > hostname
+# > hostname:
 interface*.music.163.com
 m.baidu.com
 mobile.flightradar24.com
 mrobot.buy.itunes.apple.com
-api.zhihu.com
-www.zhihu.com
-appcloud2.zhihu.com
-m-cloud.zhihu.com
-zhuanlan.zhihu.com
+# api.zhihu.com
+# www.zhihu.com
+# appcloud2.zhihu.com
+# m-cloud.zhihu.com
+# zhuanlan.zhihu.com
