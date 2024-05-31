@@ -11,3 +11,4 @@ www.zhihu.com
 appcloud2.zhihu.com
 m-cloud.zhihu.com
 zhuanlan.zhihu.com
+testflight.apple.com
