@@ -1,6 +1,6 @@
 {
-  "name": "fmz200图标订阅",
-  "description": "收集一些自己常用的图标，尺寸为108px或144px，数量约1503个，更新日期：2024-06-01 22:00:00",
+  "name": "fmz200の图标订阅",
+  "description": "收集一些自己常用的图标，尺寸为108px或144px，数量约1556个，更新日期：2024-08-10 22:44:00",
   "icons": [
     {
       "name": "fmz200",
@@ -51,8 +51,24 @@
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/airport/EdNovas.png"
     },
     {
+      "name": "1Password",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/1Password.png"
+    },
+    {
+      "name": "AdblockPlus",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/AdblockPlus.png"
+    },
+    {
       "name": "AdGuard",
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/AdGuard.png"
+    },
+    {
+      "name": "AdGuard",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/AdGuard_01.png"
+    },
+    {
+      "name": "AdGuard",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/AdGuard_02.png"
     },
     {
       "name": "Ads",
@@ -307,8 +323,20 @@
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Cisco.png"
     },
     {
+      "name": "Claude",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Claude_01.png"
+    },
+    {
+      "name": "Claude",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Claude_02.png"
+    },
+    {
       "name": "Cloudflare",
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Cloudflare.png"
+    },
+    {
+      "name": "Cloudflare",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/CloudflareWARP.png"
     },
     {
       "name": "CNTower",
@@ -353,6 +381,10 @@
     {
       "name": "douyu",
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/douyu.png"
+    },
+    {
+      "name": "Download",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Download.png"
     },
     {
       "name": "EiffelTower",
@@ -491,6 +523,14 @@
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Google.png"
     },
     {
+      "name": "GoogleBard",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/GoogleBard.png"
+    },
+    {
+      "name": "HeartRate",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/HeartRate.png"
+    },
+    {
       "name": "Hulu",
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Hulu.png"
     },
@@ -511,6 +551,10 @@
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/iRingo.png"
     },
     {
+      "name": "jingdong",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/jd.png"
+    },
+    {
       "name": "JingFuGong",
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/JingFuGong.png"
     },
@@ -521,6 +565,10 @@
     {
       "name": "kuaishou",
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/kuaishou.png"
+    },
+    {
+      "name": "LastPass",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/LastPass.png"
     },
     {
       "name": "LeaningTowerOfPisa",
@@ -537,6 +585,14 @@
     {
       "name": "Line",
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Line_02.png"
+    },
+    {
+      "name": "Line",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Line_03.png"
+    },
+    {
+      "name": "Line",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Line_04.png"
     },
     {
       "name": "LoadBalance",
@@ -599,6 +655,10 @@
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Loon_12.png"
     },
     {
+      "name": "Loon_13",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Loon_13.png"
+    },
+    {
       "name": "Loon_16",
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Loon_16.png"
     },
@@ -639,16 +699,28 @@
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Loon_26.png"
     },
     {
-      "name": "Loon_13",
-      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Loon_13.png"
+      "name": "Loon_27",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Loon_27.png"
+    },
+    {
+      "name": "Loon_28",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Loon_28.png"
+    },
+    {
+      "name": "Loon_29",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Loon_29.png"
     },
     {
       "name": "macat",
-      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/macat.png"
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Macat.png"
     },
     {
       "name": "meituan",
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/meituan.png"
+    },
+    {
+      "name": "meituxiuxiu",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/meituxiuxiu.png"
     },
     {
       "name": "Merlion",
@@ -665,6 +737,10 @@
     {
       "name": "Microsoft",
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Microsoft.png"
+    },
+    {
+      "name": "Movist",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Movist.png"
     },
     {
       "name": "mixuebingcheng",
@@ -727,12 +803,32 @@
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/ql_logo.png"
     },
     {
+      "name": "QQMusic QQ音乐",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/QQMusic.png"
+    },
+    {
+      "name": "QQMusic QQ音乐",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/QQMusic_01.png"
+    },
+    {
+      "name": "QuarkDrive",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/QuarkDrive.png"
+    },
+    {
       "name": "relay",
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/relay.png"
     },
     {
+      "name": "Riot",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Riot.png"
+    },
+    {
       "name": "RiotGames",
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/RiotGames.png"
+    },
+    {
+      "name": "RiotGames",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/RiotGames_02.png"
     },
     {
       "name": "RuinsOfSaintPauls",
@@ -749,6 +845,10 @@
     {
       "name": "select",
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/select.png"
+    },
+    {
+      "name": "Sensei",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Sensei.png"
     },
     {
       "name": "shadowrocket",
@@ -803,6 +903,10 @@
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/sheep.png"
     },
     {
+      "name": "Shortcuts",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Shortcuts.png"
+    },
+    {
       "name": "skylines",
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/skylines.png"
     },
@@ -811,8 +915,24 @@
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/smzdm.png"
     },
     {
-      "name": "spotify",
+      "name": "Spotify",
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/spotify.png"
+    },
+    {
+      "name": "Spotify",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/lige47/spotify.png"
+    },
+    {
+      "name": "Spotify",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/lige47/spotify(green).png"
+    },
+    {
+      "name": "Spotify",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/erdongchanyo/Spotify.png"
+    },
+    {
+      "name": "Spotify",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/erdongchanyo/Spotify_05.png"
     },
     {
       "name": "switch",
@@ -825,6 +945,10 @@
     {
       "name": "Snapchat",
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Snapchat.png"
+    },
+    {
+      "name": "Snapchat",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Snapchat_02.png"
     },
     {
       "name": "Soul",
@@ -841,6 +965,10 @@
     {
       "name": "telegram",
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/telegram.png"
+    },
+    {
+      "name": "telegram",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Telegram_02.png"
     },
     {
       "name": "tencent",
@@ -873,6 +1001,10 @@
     {
       "name": "TheWhiteHouse",
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/TheWhiteHouse.png"
+    },
+    {
+      "name": "Thunder",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Thunder.png"
     },
     {
       "name": "tiktok",
@@ -1151,6 +1283,10 @@
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/xianyu.png"
     },
     {
+      "name": "xianyu",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/xianyu_02.png"
+    },
+    {
       "name": "ximalaya",
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/ximalaya.png"
     },
@@ -1245,6 +1381,10 @@
     {
       "name": "iBeta",
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/group/iBeta.png"
+    },
+    {
+      "name": "NG-Nigeria-尼日利亚",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/flag/NG_01.png"
     },
     {
       "name": "哆啦A梦",
@@ -1581,14 +1721,6 @@
     {
       "name": "HBO",
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/lige47/HBO.png"
-    },
-    {
-      "name": "spotify",
-      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/lige47/spotify.png"
-    },
-    {
-      "name": "spotify(green)",
-      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/lige47/spotify(green).png"
     },
     {
       "name": "bilibili(1)",
@@ -5949,10 +6081,6 @@
     {
       "name": "PrimeVideo",
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/erdongchanyo/PrimeVideo.png"
-    },
-    {
-      "name": "Spotify",
-      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/erdongchanyo/Spotify.png"
     },
     {
       "name": "SSport+",

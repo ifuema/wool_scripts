@@ -1,11 +1,11 @@
 /**
  * @auther @fmz200
  * @function 微博去广告
- * @date 2024-06-08 21:00:00
+ * @date 2024-07-24 21:00:00
  * @quote zmqcherish
  */
 
-const version = 'v20230411.1';
+const version = 'v20240515.1';
 
 const $ = new Env("微博去广告");
 let storeMainConfig = $.getdata('mainConfig');
@@ -13,7 +13,7 @@ let storeItemMenusConfig = $.getdata('itemMenusConfig');
 
 //主要的选项配置
 const mainConfig = storeMainConfig ? JSON.parse(storeMainConfig) : {
-	isDebug: false,						//开启调试，会打印运行中部分日志
+	isDebug: true,						//开启调试，会打印运行中部分日志
 	//个人中心配置，其中多数是可以直接在更多功能里直接移除
 	removeHomeVip: true,				//个人中心的vip栏
 	removeHomeCreatorTask: true,		//个人中心创作者中心下方的轮播图
@@ -23,7 +23,7 @@ const mainConfig = storeMainConfig ? JSON.parse(storeMainConfig) : {
 	removeGood: true,			//微博主好物种草
 	removeFollow: true,			//关注博主
 	modifyMenus: true,			//编辑上下文菜单
-	removeRelateItem: false,	//评论区相关内容
+	removeRelateItem: true,	//评论区相关内容
 	removeRecommendItem: true,	//评论区推荐内容
 	removeRewardItem: false,	//微博详情页打赏模块
 
@@ -98,20 +98,20 @@ const otherUrls = {
 	'/statuses/container_timeline?': 'removeMain',	//首页
 	'/statuses/container_timeline_unread': 'removeMain',	//首页
 	'/statuses/container_timeline_hot': 'removeMain',	//推荐页，fmz200
+	'/statuses/repost_timeline': 'removeRepost',	//转发流
 }
 
 let url = $request.url;
 let body = $response.body;
 let method = getModifyMethod(url);
-log("匹配方法：" + method);
+console.log("匹配方法：" + method);
+let data = JSON.parse(body);
 if (method) {
-	let data = JSON.parse(body);
 	let func = eval(method);
 	new func(data);
-	body = JSON.stringify(data);
 }
 
-$.done({body});
+$.done({body: JSON.stringify(data)});
 
 
 function getModifyMethod(url) {
@@ -125,23 +125,30 @@ function getModifyMethod(url) {
 			return 'removeTimeLine';
 		}
 	}
-	for (const [path, method] of Object.entries(otherUrls)) {
-		if (url.indexOf(path) > -1) {
+	// 其他URL
+	const path = Object.keys(otherUrls).find(path => url.includes(path));
+ if (path) {
+   const method = otherUrls[path];
+   console.log(method);
 			return method;
-		}
-	}
+ }
 	return null;
 }
-
 
 function isAd(data) {
 	if (!data) {
 		return false;
 	}
-	if (data.mblogtypename === '广告' || data.mblogtypename === '热推') {
+	if (data.mblogtypename?.includes('广告') || data.mblogtypename?.includes('热推')) {
 		return true;
 	}
-	if (data.promotion && data.promotion.type === 'ad') {
+	if (data.promotion?.type === 'ad') {
+		return true;
+	}
+	if (data.content_auth_info?.content_auth_title?.includes("广告")) {
+		return true;
+	}
+	if (data.ads_material_info?.is_ads) {
 		return true;
 	}
 	return false;
@@ -153,12 +160,36 @@ function checkJunkTopic(item) {
 		return false;
 	}
 	try {
-		if (item.items[0]['data']['title'] === '关注你感兴趣的超话') {
+		if(['super_topic_recommend_card', 'recommend_video_card'].indexOf(item.trend_name) > -1) {
 			return true;
 		}
 	} catch (error) {
 	}
 	return false;
+}
+
+function removeRepost(data) {
+	if (data.reposts) {
+		let newItems = [];
+		for (let item of data.reposts) {
+			if (!isAd(item)) {
+				newItems.push(item);
+			}
+		}
+		data.reposts = newItems;
+	}
+
+	if (data.hot_reposts) {
+		let newItems = [];
+		for (let item of data.hot_reposts) {
+			if (!isAd(item)) {
+				newItems.push(item);
+			}
+		}
+		data.hot_reposts = newItems;
+	}
+	log('removeRepost success');
+	return data;
 }
 
 function removeMain(data) {
@@ -229,7 +260,7 @@ function topicHandler(data) {
 				let newSubItems = [];
 				for (let sub of subItems) {
 					let anchorId = sub?.itemExt?.anchorId;
-					if (!anchorId || ['sg_bottom_tab_search_input', 'multi_feed_entrance', 'bottom_mix_activity', 'cats_top_content', 'chaohua_home_readpost_samecity_title', 'chaohua_discovery_banner_1', 'chaohua_home_readpost_samecity_content'].indexOf(anchorId) == -1) {
+					if (!anchorId || ['sg_bottom_tab_search_input', 'multi_feed_entrance', 'bottom_mix_activity', 'cats_top_content', 'chaohua_home_readpost_samecity_title', 'chaohua_discovery_banner_1', 'chaohua_home_readpost_samecity_content'].indexOf(anchorId) === -1) {
 						newSubItems.push(sub);
 					}
 				}
@@ -239,6 +270,8 @@ function topicHandler(data) {
 				if (cData?.top?.title === '正在活跃') {
 					addFlag = false;
 				} else if (cData.card_type === 200 && cData.group) {
+					addFlag = false;
+				} else if (cData?.itemid.indexOf('infeed_may_interest_in') > -1) {
 					addFlag = false;
 				}
 			}
@@ -251,7 +284,6 @@ function topicHandler(data) {
 	log('topicHandler success');
 	return data;
 }
-
 
 function removeSearchMain(data) {
 	let channels = data.channelInfo.channels;
@@ -269,15 +301,13 @@ function removeSearchMain(data) {
 	return data;
 }
 
-
 function checkSearchWindow(item) {
 	if (!mainConfig.removeSearchWindow) return false;
 	if (item.category !== 'card') return false;
 	return item.data?.itemid === 'finder_window' || item.data?.itemid === 'more_frame';
 }
 
-
-//发现页
+// 发现页
 function removeSearch(data) {
 	if (!data.items) {
 		return data;
@@ -602,13 +632,25 @@ function removeMediaHomelist(data) {
 //评论区相关和推荐内容
 function removeComments(data) {
 	let delType = ['广告'];
-	if (mainConfig.removeRelateItem) delType.push('相关内容');
+	if (mainConfig.removeRelateItem) delType.push('相关内容', '相关评论');
 	if (mainConfig.removeRecommendItem) delType.push(...['推荐', '热推']);
 	// if(delType.length === 0) return;
 	let items = data.datas || [];
 	if (items.length === 0) return;
 	let newItems = [];
 	for (const item of items) {
+		if (isAd(item.data)) {
+			continue;
+		}
+		if (item.data?.user) {
+			if (["超话社区", "微博开新年", "微博热搜", "微博视频"].includes(item.data.user.name)) {
+				continue;
+			}
+		}
+		// 6为你推荐更多精彩内容 15过滤提示
+		if (item.type === 6 || item.type === 15) {
+			continue;
+		}
 		let adType = item.adType || '';
 		if (delType.indexOf(adType) === -1) {
 			newItems.push(item);

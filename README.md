@@ -2,8 +2,6 @@
 
 ## 致敬开源精神 净化网络环境
 
-### 不只是 QuantumultX 脚本
-
 ![GitHub contributors](https://img.shields.io/github/contributors/fmz200/wool_scripts?style=for-the-badge)
 ![GitHub stars](https://img.shields.io/github/stars/fmz200/wool_scripts?color=ffd700&style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/fmz200/wool_scripts?color=60c5ba&style=for-the-badge)
@@ -22,7 +20,7 @@
 
 ---
 
-## ✅ 一些说明：
+## ✅ 一些说明
 
 ▶️ 由于张军大佬隐退，所以我接管进行日常更新，故本库中存储的就是张军大佬的且是最新的配置，不要再问了。
 
@@ -34,21 +32,24 @@
 
 ▶️ 使用本项目中的内容所造成的一切后果，均由使用者承担。
 
-▶️ 本项目中的内容请不要在中国大陆的任何平台传播。
+▶️ 交流群组：👉🏻[苹果iOS去广告交流群](https://t.me/lanjieguanggao)，👉🏻[奶思资源分享|频道](https://t.me/inaisi)。
 
-▶️ <span style="color: #F44336">Please do not disseminate the content in this project on any platform in mainland China. Thanks!</span>
 
-▶️ 交流群组：👉🏻[苹果iOS去广告交流群](https://t.me/lanjieguanggao)，👉🏻[奶思|频道](https://t.me/inaisi)。
+## ⚠️ 温馨提示
 
-![#c62828](https://via.placeholder.com/15/c62828/000000?text=+)
+▶️ 本项目中的任何内容请不要在中国大陆的任何平台传播（包括但不限于链接分享，评论装逼，发帖炫耀），否则你可能会被开盒或收到大量举报。
+
+▶️ Please do not disseminate the content in this project on any platform in mainland China. Thanks!
+
 
 ---
 
 ## 🚸 常见问题
 
-### 1️⃣ 我为什么指定了抖音的分流到国外，评论视频却显示“IP未知”
+### 1️⃣ ~~我为什么指定了抖音的分流到国外，评论视频却显示“IP未知”~~ 
+### ✅ 抖音已经不需要家宽就可以更改IP，但是个人主页不会显示海外IP
 
-> 答：抖音与其他软件判断IP归属地的方式不同，抖音需要家庭宽带IP（又叫住宅IP）才能生效，而现在的大部分机场都是机房的IP，所以评论视频就显示IP未知。
+> ~~答：抖音与其他软件判断IP归属地的方式不同，抖音需要家庭宽带IP（又叫住宅IP）才能生效，而现在的大部分机场都是机房的IP，所以评论视频就显示IP未知。~~
 > 如果你不知道自己抖音分流的IP是不是家宽，可以访问[https://ipinfo.io](https://ipinfo.io/) 查看，在`asn`
 > 信息中如果你看到`type:
 "isp"`那就是家庭宽带，其他值（比如：hosting，business）都不是家宽。
@@ -56,7 +57,7 @@
 常见的抖音分流有：
 > https://github.com/fmz200/wool_scripts/raw/main/QuantumultX/filter/DouYin.list
 >
-> https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/DouYin/DouYin.list
+> https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/QuantumultX/DouYin/DouYin.list
 
 ### 2️⃣ 为什么有些软件明明很热门，却没有人做去广告的规则
 
@@ -101,10 +102,14 @@
 
 > 📍 除下方已经转为Loon的配置，你可以借助 [Script-Hub：重写 & 规则集转换](https://github.com/Script-Hub-Org/Script-Hub) 工具将上方的QX重写和分流添加到Loon中。
 
-| # | 配置类型 | 配置名称               | 配置链接                                                                                           | 作者                                  | 特别说明                               | 使用教程 |
-|---|------|--------------------|------------------------------------------------------------------------------------------------|-------------------------------------|------------------------------------|------|
-| # | 订阅脚本 | `Task订阅`           | [tasks.scripts](https://github.com/fmz200/wool_scripts/raw/main/Loon/script/tasks.scripts)     | [fmz200](https://github.com/fmz200) | 需要先获取cookie或token再运行               | 暂无   |
-| # | 订阅脚本 | `获取cookie&token合集` | [cookies.scripts](https://github.com/fmz200/wool_scripts/raw/main/Loon/script/cookies.scripts) | [fmz200](https://github.com/fmz200) | 包含fmz200/NobyDa/chavyleung/Sunert等 | 暂无   |
+| # | 配置类型 | 配置名称               | 配置链接                                                                                             | 作者                                  | 特别说明                               | 使用教程 |
+|---|------|--------------------|--------------------------------------------------------------------------------------------------|-------------------------------------|------------------------------------|------|
+| # | 规则   | `去广告合集`            | [rejectAd.plugin](https://github.com/fmz200/wool_scripts/raw/main/Loon/rule/rejectAd.list)       | [fmz200](https://github.com/fmz200) | 从QX的分流去广告转换而来                      | 暂无   |
+| # | 插件   | `微博去广告`            | [weibo.plugin](https://github.com/fmz200/wool_scripts/raw/main/Loon/plugin/weibo.plugin)         | [fmz200](https://github.com/fmz200) | 无                                  | 暂无   |
+| # | 插件   | `获取cookie&token合集` | [cookies.plugin](https://github.com/fmz200/wool_scripts/raw/main/Loon/plugin/cookies.plugin)     | [fmz200](https://github.com/fmz200) | 包含fmz200/NobyDa/chavyleung/Sunert等 | 暂无   |
+| # | 脚本   | `Task订阅`           | [tasks.scripts](https://github.com/fmz200/wool_scripts/raw/main/Loon/script/tasks.scripts)       | [fmz200](https://github.com/fmz200) | 需要先获取cookie或token再运行               | 暂无   |
+| # | 规则   | `AI分流规则合集`         | [AI.list](https://github.com/fmz200/wool_scripts/raw/main/Loon/rule/AI.list)                     | [fmz200](https://github.com/fmz200) | 汇集常用的AI模型                          | 暂无   |
+| # | 规则   | `屏蔽苹果系统更新`         | [apple_update.list](https://github.com/fmz200/wool_scripts/raw/main/Loon/rule/apple_update.list) | [fmz200](https://github.com/fmz200) | 无                                  | 暂无   |
 
 
 ### 3️⃣ Surge配置
