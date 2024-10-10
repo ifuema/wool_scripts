@@ -664,3 +664,7 @@ userpms-api.suh.cn
 patient-api.suh.cn
 api2.yaduo.com
 www.zybang.com
+webcast-open.douyin.com
+ether-pack.pangolin-sdk-toutiao.com
+api-access.pangolin-sdk-toutiao?.com
+sf*-fe-tos.pglstatp-toutiao.com
