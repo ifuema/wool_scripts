@@ -668,3 +668,7 @@ webcast-open.douyin.com
 ether-pack.pangolin-sdk-toutiao.com
 api-access.pangolin-sdk-toutiao?.com
 sf*-fe-tos.pglstatp-toutiao.com
+cache.bydauto.com.cn
+app-v1.ecoliving168.com
+booking.bestwehotel.com
+api.51credit.com
