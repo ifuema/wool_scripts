@@ -1,15 +1,16 @@
 #!name=微博去广告&净化
-#!desc=去除常见的微博广告，可能不全面
+#!desc=去除常见的广告和部分多余的模块
 #!author=奶思[https://github.com/fmz200]
 #!homepage=https://github.com/fmz200/wool_scripts
 #!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Weibo-00.png
 #!raw-url=https://github.com/fmz200/wool_scripts/raw/main/Loon/plugin/weibo.plugin
 #!tg-group=https://t.me/lanjieguanggao
+#!category=奶思的模块
 #!tag = 去广告, 微博, fmz200
 #!system = iOS, iPadOS
 #!system_version = 
 #!loon_version = 
-#!date=2024-08-07 20:33:00
+#!date=2025-02-08 21:00:00
 #############################################
 # > "reject"        策略返回 HTTP 状态码 404,不附带任何额外内容
 # > "reject-200"    策略返回 HTTP 状态码 200,不附带任何额外内容
@@ -28,7 +29,6 @@ URL-REGEX, ^https?:\/\/api-cloudim\.api\.weibo\.com\/v1\/log\/, REJECT-DROP
 DOMAIN-SUFFIX, biz.weibo.com, REJECT
 DOMAIN, bootpreload.uve.weibo.com, REJECT
 # 其他广告
-DOMAIN, f.video.weibocdn.com, REJECT
 DOMAIN-SUFFIX, fastimage.uve.weibo.com, REJECT
 DOMAIN-SUFFIX, adimg.vue.weibo.com, REJECT
 DOMAIN-SUFFIX, zymo.mps.weibo.com, REJECT
@@ -104,7 +104,7 @@ http-response ^https?:\/\/m?api\.weibo\.c(n|om)\/2\/statuses\/extend\? script-pa
 http-response ^https?:\/\/m?api\.weibo\.c(n|om)\/2\/groups\/allgroups\/v2 script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/weibo/weibo_ads.js, requires-body=true, timeout=60, tag=微博最顶部的tab页分组
 
 # 微博去广告以及去除各部分推广模块 - cherish
-http-response ^https?:\/\/m?api\.weibo\.c(n|om)/2/(cardlist|searchall|page|messageflow|statuses/(unread_)?friends(/|_)timeline|groups/timeline|statuses/(container_timeline|container_timeline_hot|unread_hot_timeline|extend|video_mixtimeline)|profile/(me|container_timeline)|video/(community_tab|remind_info|tiny_stream_video_list)|checkin/show|\!/live/media_homelist|comments/build_comments|container/get_item|search/(finder|container_timeline|container_discover)) script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/weibo/weibo_main.js, requires-body=true, timeout=60, tag=微博去广告以及去除各部分推广模块
+http-response ^https?:\/\/m?api\.weibo\.c(n|om)/2/(cardlist|searchall|page|messageflow|statuses/(unread_)?friends(/|_)timeline|groups/timeline|statuses/(container_timeline|container_timeline_hot|unread_hot_timeline|extend|video_mixtimeline)|profile/(me|container_timeline)|video/(community_tab|remind_info|tiny_stream_video_list)|checkin/show|\!/live/media_homelist|comments/build_comments|container/get_item) script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/weibo/weibo_main.js, requires-body=true, timeout=60, tag=微博去广告以及去除各部分推广模块
 http-response ^https?:\/\/(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua) script-path=https://raw.githubusercontent.com/zmqcherish/proxy-script/main/weibo_launch.js, requires-body=true, timeout=60, tag=微博去广告以及去除各部分推广模块
 
 # 自定义tab皮肤
