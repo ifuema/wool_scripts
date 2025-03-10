@@ -1,7 +1,7 @@
 /**
  * @author fmz200
  * @function 微博去广告
- * @date 2025-02-08 21:00:00
+ * @date 2025-02-22 10:00:00
  */
 
 let url = $request.url;
@@ -34,21 +34,21 @@ try {
       console.log('处理微博热搜页面广告结束💕💕');
     }
 
-    // 微博热搜页面 “热搜”tab页 https://api.weibo.cn/2/flowpage
+    // 微博热搜页面 “热搜”tab页
     if (url.includes("/2/flowpage?")) {
       // 删掉Banner图
       resp_data.pageHeader = {};
       for (let subItem of resp_data.items) {
         if (subItem.itemId === "hotword") {
-          subItem.items = subItem.items.filter(group => group.data.promotion == null);
+          subItem.items = subItem.items.filter(group => group.data.promotion == null && !group.data.itemid.includes("c_type:51")); 
           break;
         } else if (subItem.items) {
-          subItem.items = subItem.items.filter(group => group.data.promotion == null);
+          subItem.items = subItem.items.filter(group => group.data.promotion == null && !group.data.itemid.includes("c_type:51"));
         }
       }
     }
 
-    // 4、微博超话页面 https://api.weibo.cn/2/statuses/container_timeline_topicpage
+    // 4、微博超话页面
     if (url.includes("/statuses/container_timeline_topicpage?") && resp_data.items) {
       resp_data.items = resp_data.items.filter(item => !item.data || item.data.mblogtypename !== "广告");
       console.log('处理微博超话页面广告结束💕💕');
@@ -56,29 +56,47 @@ try {
 
     // 5、微博详情页面
     if (url.includes("/statuses/extend?")) {
-      resp_data.head_cards = [];
+      delete resp_data.head_cards;
+      delete resp_data.top_cards;
+      delete resp_data.extend_info;
+      delete resp_data.semantic_brand_params;
       console.log('处理微博详情页面广告结束💕💕');
     }
 
-    // 6、移除微博首页的多余tab页 微博首页Tab标签页 https://api.weibo.cn/2/groups/allgroups/v2
+    // 6、移除微博首页的多余tab页 微博首页Tab标签页
     if (url.includes("/groups/allgroups/v2")) {
       removePageDataAds(resp_data.pageDatas);
       // 删除恶心人的“全部微博”
       delete resp_data.pageDatas[0].categories[0].pageDatas[0];
     }
 
-    // 7、话题页面 微博话题页面 https://api.weibo.cn/2/searchall
+    // 7、话题页面 微博话题页面
     if (url.includes("/2/searchall?")) {
       for (let i = 0; i < resp_data.items.length; i++) {
         if (resp_data.items[i].data?.mblogtypename === "广告" || resp_data.items[i].data?.ad_state === 1) {
           console.log('处理话题页面广告');
           resp_data.items[i] = {};
+          continue;
+        } else {
+          deleteSemanticBrandParams(resp_data.items[i]);
+        }
+
+        if (resp_data.items[i].items) {
+          for (let j = 0; j < resp_data.items[i].items.length; j++) {
+            if (resp_data.items[i].items[j].data?.card_type === 22
+                || resp_data.items[i].items[j].data?.ad_state === 1
+                || resp_data.items[i].items[j].data?.content_auth_info?.content_auth_title === "广告") {
+              resp_data.items[i].items[j] = {};
+            } else {
+              deleteSemanticBrandParams(resp_data.items[i].items[j]);
+            }
+          }
         }
       }
       console.log('处理话题页面广告结束💕💕');
     }
 
-    // 8、超话tab页 微博超话tab页 https://api.weibo.cn/2/statuses/container_timeline_topic
+    // 8、超话tab页 微博超话tab页
     if (url.includes("/statuses/container_timeline_topic?")) {
       let foundFeed = false;
       const cardTypes = [19, 179]; // 19：热帖/必刷/分类，31：热搜词，179：关注的超话
@@ -127,6 +145,9 @@ $done({body:JSON.stringify(resp_data)});
 /***************************方法主体end*********************************/
 
 function processPayload(payload) {
+  if (!payload) {
+    return;
+  }
   if (payload.items[0].items) {
     removeCommonAds(payload.items[0].items);
   }
@@ -153,13 +174,10 @@ function removeChannelsTabs(channels) {
 }
 
 function removeHeaderAds(headerItems) {
+  removeCommonAds(headerItems);
   for (let i = 0; i < headerItems.length; i++) {
     if (headerItems[i].items) {
       removeCommonAds(headerItems[i].items);
-    }
-    // 亚运排行榜
-    if (headerItems[i].data?.card_type === 196) {
-      headerItems[i] = {};
     }
   }
 }
@@ -185,7 +203,7 @@ function removeCommonAds(items) {
     console.log(`card_type = ${card_type}`);
     // 白名单模式
     if (card_type && !cardTypes.includes(card_type)) {
-      console.log('移除多余的模块💕💕');
+      console.log(`移除多余的模块：${card_type}💕💕`);
       items[i] = {};
       continue;
     }
@@ -204,7 +222,7 @@ function removeHotSearchAds(groups) {
   console.log('移除发现页热搜广告开始💕');
   for (let i = groups.length - 1; i >= 0; i--) {
     const group = groups[i];
-    if (group.itemid?.includes("is_ad_pos") || group.icon?.includes("8_0_small.png") || group.promotion) {
+    if (group.itemid?.includes("is_ad_pos") || group.itemid?.includes("cate_type:tongcheng") || group.promotion) {
       groups.splice(i, 1);
     }
   }
@@ -230,5 +248,13 @@ function removePageDataAds(items) {
     if (item.pageDataType === "homeExtend") {
       items.splice(i, 1);
     }
+  }
+}
+
+// 删除一条微博下面的图片广告
+function deleteSemanticBrandParams(item) {
+  if (item.data?.semantic_brand_params) {
+    console.log('删除一条微博下面的图片广告💕');
+    delete item.data.semantic_brand_params;
   }
 }
