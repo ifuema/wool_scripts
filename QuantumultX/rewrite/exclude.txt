@@ -674,3 +674,8 @@ booking.bestwehotel.com
 api.51credit.com
 ecloud.tppension.cntaiping.com
 ntt-app.benewtech.cn
+mobile-consumer-sapp.chery.cn
+webapi.qmai.cn
+miniapp.qmai.cn
+web-stable-cdn.ykccn.com
+gw3.ykccn.com

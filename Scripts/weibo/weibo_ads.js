@@ -1,7 +1,7 @@
 /**
  * @author fmz200
  * @function 微博去广告
- * @date 2025-02-22 10:00:00
+ * @date 2025-03-30 15:20:00
  */
 
 let url = $request.url;
@@ -59,7 +59,11 @@ try {
       delete resp_data.head_cards;
       delete resp_data.top_cards;
       delete resp_data.extend_info;
+      delete resp_data.trend; // 博主好物种草
       delete resp_data.semantic_brand_params;
+      delete resp_data.ad_tag_nature;
+      delete resp_data.title_source;
+      delete resp_data.reward_info;
       console.log('处理微博详情页面广告结束💕💕');
     }
 
